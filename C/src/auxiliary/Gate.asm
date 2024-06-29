@@ -24,4 +24,11 @@ Syscall_NtProtectVirtualMemory:
     mov eax, r11d
     ret
 
+global Syscall_NtWriteVirtualMemory
+Syscall_NtWriteVirtualMemory:
+    push r10
+    xor rax, rax
+    mov r10, rcx
+    mov eax, r11d
+    ret
 ; add more when needed

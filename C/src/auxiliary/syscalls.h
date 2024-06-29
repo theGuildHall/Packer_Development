@@ -84,6 +84,7 @@ VOID PrepareSyscall(DWORD dwSycallNr, PVOID dw64Gate);
 
 SYSCALL_ENTRY* _NtProtectVirtualMemory;
 SYSCALL_ENTRY* _NtAllocateVirtualMemory;
+SYSCALL_ENTRY* _NtWriteVirtualMemory;
 
 // NtProtectVirtualMemory
 NTSTATUS WINAPI Syscall_NtProtectVirtualMemory(
@@ -102,6 +103,14 @@ NTSTATUS WINAPI Syscall_NtAllocateVirtualMemory(
     PSIZE_T RegionSize,
     ULONG AllocationType,
     ULONG Protect
+);
+
+NTSTATUS WINAPI Syscall_NtWriteVirtualMemory(
+    HANDLE ProcessHandle,          
+    PVOID BaseAddress,
+    PVOID Buffer,
+    ULONG NumberOfBytesToWrite,
+    PULONG NumberOfBytesWritten
 );
 
 // --------------------------------------
